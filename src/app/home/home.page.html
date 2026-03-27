@@ -8,7 +8,6 @@
   <ion-toolbar>
     <ion-title>
       <!-- TODO: Escribe aquí el nombre de tu aplicación -->
-       Mi Aplicación
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,9 +21,6 @@
        Referencia de la teoría (apartado 3 – Two-way Binding):
          <ion-input [(ngModel)]="nombre"></ion-input>
   -->
-  <ion-item>
-    <ion-input [(ngModel)]="busqueda" placeholder="Buscar elemento..."></ion-input>
-  </ion-item>
 
   <!-- TODO (Apartado 1 + 2 + 3):
        Lista de elementos.
@@ -45,16 +41,6 @@
            </ion-item>
          </ion-list>
   -->
-  <ion-list>
-    @for (elemento of elementosFiltrados; track elemento.id) {
-      <ion-item button="true" (click)="verDetalle(elemento)">
-        <ion-label>
-          <h2>{{ elemento.nombre }}</h2>
-          <p>{{ elemento.descripcion }}</p>
-        </ion-label>
-      </ion-item>
-    }
-  </ion-list>
 
   <!-- TODO (Apartado 1 + 3 – Event Binding + Property Binding):
        Añadir un <ion-button> que:
@@ -64,15 +50,7 @@
        Referencia de la teoría (apartado 3 – Event Binding y Property Binding):
          <ion-button [disabled]="!formValido" (click)="guardar()">Guardar</ion-button>
   -->
-  <ion-button expand="block" [disabled]="!hayElementos" (click)="mostrarToast()">
-    Mostrar mensaje
-  </ion-button>
 
 </ion-content>
 
 <!-- TODO (Apartado 1): Añadir ion-footer con ion-toolbar e ion-title informativo -->
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Footer Tarea TA01 - Angular + Ionic</ion-title>
-  </ion-toolbar>
-</ion-footer>
