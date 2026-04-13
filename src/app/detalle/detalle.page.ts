@@ -24,9 +24,7 @@ export class DetallePage implements OnInit {
 
   ngOnInit(): void {
     // Recuperar el elemento pasado desde la página anterior mediante el estado de navegación
-    const state = history.state;
-    if (state?.elemento) {
-      this.elemento = state.elemento;
-    }
+    // Pista: history.state
+    
   }
 }

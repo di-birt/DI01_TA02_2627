@@ -8,15 +8,14 @@
   <ion-toolbar>
 
     <!-- TODO (Apartado 2):
-         Añadir <ion-buttons slot="start"> con <ion-back-button defaultHref="/home">
-         Estructura de referencia (teoría, apartado 2 – ion-back-button):
-         <ion-buttons slot="start">
-           <ion-back-button defaultHref="/home"></ion-back-button>
-         </ion-buttons>
+         Añadir <ion-buttons slot="start"> con <ion-back-button> para volver a la página de inicio.
+          - Usa el atributo defaultHref="/home" para asegurar que el botón funcione incluso si se accede directamente a esta página.
+         Estructura de referencia (teoría, apartado 2 – ion-back-button)
     -->
 
     <!-- TODO (Apartado 3 – Interpolación):
-         Mostrar el nombre del elemento en el título usando {{ elemento?.nombre }}
+         Mostrar el nombre del elemento en el título usando
+         Sustituir "Detalle" para mostrar el nombre del elemento seleccionado.
     -->
     <ion-title>Detalle</ion-title>
 
@@ -32,12 +31,12 @@
        <ion-list>
          <ion-item>
            <ion-label>
-             <h2>{{ elemento?.nombre }}</h2>
-             <p>{{ elemento?.descripcion }}</p>
+             <h2></h2>
+             <p></p>
            </ion-label>
          </ion-item>
          <ion-item>
-           <ion-label>Categoría: {{ elemento?.categoria }}</ion-label>
+           <ion-label>Categoría: </ion-label>
          </ion-item>
        </ion-list>
 
