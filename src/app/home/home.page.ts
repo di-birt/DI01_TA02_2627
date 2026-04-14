@@ -32,7 +32,7 @@ export class HomePage {
 
   // TODO (Apartado 3 – Property Binding): Devuelve true si hay elementos en la lista
   get hayElementos(): boolean {
-    return this.elementos.length > 0;
+    return false; //Modificar
   }
 
   // TODO (Apartado 3 – Two-way Binding): Filtra los elementos según this.busqueda
