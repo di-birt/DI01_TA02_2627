@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent, IonFooter,
@@ -13,7 +13,8 @@ import { Elemento } from '../models/elemento.model';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent, 
+    IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, 
+    IonList, IonItem, IonLabel, IonButton, IonInput,
     FormsModule
   ],
 })
@@ -27,25 +28,46 @@ export class HomePage {
   elementos: Elemento[] = [
     // Ejemplo:
     // { id: 1, nombre: 'Elemento 1', descripcion: 'Descripción breve', categoria: 'Cat A' },
+    { id: 1, nombre: 'Angular', descripcion: 'Framework SPA de Google', categoria: 'Frontend' },
+    { id: 2, nombre: 'Ionic', descripcion: 'Framework para apps híbridas', categoria: 'Mobile' },
+    { id: 3, nombre: 'TypeScript', descripcion: 'Superset tipado de JavaScript', categoria: 'Lenguaje' },
+    { id: 4, nombre: 'Node.js', descripcion: 'Entorno de ejecución de JS en servidor', categoria: 'Backend' },
+    { id: 5, nombre: 'Capacitor', descripcion: 'Puente nativo para apps Ionic', categoria: 'Mobile' },
   ];
 
   // TODO (Apartado 3 – Property Binding): Devuelve true si hay elementos en la lista
   get hayElementos(): boolean {
-    return false; //Modificar
+    return this.elementos.length > 0;
   }
 
   // TODO (Apartado 3 – Two-way Binding): Filtra los elementos según this.busqueda
   get elementosFiltrados(): Elemento[] {
     // Implementa el filtro (this.elementos.filter): devuelve solo los elementos cuyo nombre
     // incluya el texto de this.busqueda (ignorando mayúsculas/minúsculas -> .toLowerCase())
-    return this.elementos;
+    if (!this.busqueda.trim()) {
+      return this.elementos;
+    }
+
+    return this.elementos.filter(elemento =>
+      elemento.nombre.toLowerCase().includes(this.busqueda.toLowerCase())
+    );
   }
 
   // TODO Modificar el constructor para inyectar Router y ToastController con inject
-  constructor(private router: Router, private toastController: ToastController) {}
+  private router = inject(Router);
+  private toastController = inject(ToastController);
+  //Al hacer uso de inject() no es necesario el constructor, pero lo dejo comentado para que veas cómo sería con inyección tradicional
+  //constructor(private router: Router, private toastController: ToastController) {}
+  constructor() {};
 
   // TODO (Apartado 1 + 3 – Event Binding): Mostrar un ion-toast al pulsar el botón
   async mostrarToast(): Promise<void> {
-    // Consulta la teoría: apartado "ion-toast vs ion-alert"    
+    // Consulta la teoría: apartado "ion-toast vs ion-alert"
+    const toast = await this.toastController.create({
+      message: 'Lista de tecnologías cargada correctamente',
+      duration: 2000,
+      position: 'bottom'
+    });
+    await toast.present();
   }
 }
