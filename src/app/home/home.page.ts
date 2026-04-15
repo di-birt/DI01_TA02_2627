@@ -13,8 +13,7 @@ import { Elemento } from '../models/elemento.model';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent, IonFooter,
-    IonList, IonItem, IonLabel, IonButton, IonInput,
+    IonHeader, IonToolbar, IonTitle, IonContent, 
     FormsModule
   ],
 })
@@ -44,11 +43,6 @@ export class HomePage {
 
   // TODO Modificar el constructor para inyectar Router y ToastController con inject
   constructor(private router: Router, private toastController: ToastController) {}
-
-  // TODO (Apartado 2 – Navegación): Navegar a /detalle con el elemento seleccionado
-  verDetalle(elemento: Elemento): void {
-    // Pista: this.router.navigate
-  }
 
   // TODO (Apartado 1 + 3 – Event Binding): Mostrar un ion-toast al pulsar el botón
   async mostrarToast(): Promise<void> {
