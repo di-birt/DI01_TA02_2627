@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent, IonFooter,
   IonList, IonItem, IonLabel, IonButton, IonInput,
@@ -54,7 +53,6 @@ export class HomePage {
   }
 
   // TODO Modificar el constructor para inyectar Router y ToastController con inject
-  private router = inject(Router);
   private toastController = inject(ToastController);
   //Al hacer uso de inject() no es necesario el constructor, pero lo dejo comentado para que veas cómo sería con inyección tradicional
   //constructor(private router: Router, private toastController: ToastController) {}
